@@ -1,16 +1,21 @@
 *{
-    border:1px solid purple;
+    /* border:1px solid purple; */
 }
 
-html,body{
+body,h1,h2,h3,p{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    height:100%;
-    width: 100%;
+    /* height:100%;
+    width: 100%; */
+}
+
+body{
+    height: 100vh;
 }
 
 .container{
+    width: 100%;
     height: 100%;
     display:flex;
     flex-flow: column nowrap;
@@ -18,8 +23,13 @@ html,body{
     align-items: center;
 }
 
+header{
+    padding-top:2rem;
+    font-size: 1.5rem;
+}
+
 main{
-    width: 40%;
+    width: 100%;
     display:flex;
     flex-flow: column nowrap;
     /* justify-content: center; */
@@ -28,12 +38,12 @@ main{
 }
 
 .calc-container{
-    width:60%;
+    width:90%;
     display:flex;
     flex-flow: column nowrap;
-    /* justify-content: center; */
-    align-items: center;
-    /* font-size: 3rem; */
+    margin:2rem 0;
+    border:2px solid black;
+    border-radius: 1rem;
 }
 
 .input-field{
@@ -42,24 +52,29 @@ main{
 
 .input-field input{
     width: 100%;
-    padding:5% 0;
+    
+    font-size: 3rem;
+    padding:1rem 0;
     text-align: center;
+    border-radius: 1rem;
+    border: 0px solid black;
+    border-bottom: 1px solid black;
 }
 
-.clear-buttons{
-    display:flex;
-    width: 100%;
-    /* padding:5% 0; */
+.number-buttons .clear-buttons{
+/* font-size: 30%; */
+
 }
-.clear-buttons span{
-    width:100%;
-    text-align: center;
-    padding:3% 0;
+.number-buttons .clear-buttons span{
+    /* font-size: ; */
+    border:1px solid black;
+    padding:10% 0;
 }
 
 .calc-body{
     display:flex;
-    /* font-size: 5rem; */
+    flex-flow: row nowrap;
+    font-size: 1.5rem;
     width: 100%;
 }
 
@@ -68,6 +83,7 @@ main{
     flex-flow: column nowrap;
     align-items:center;
     width: 80%;
+    
 }
 
 .number-buttons div{
@@ -79,6 +95,7 @@ main{
     text-align: center;
     width: 100%;
     padding:10%;
+    border:1px solid black;
 }
 
 .calc-body .operators{
@@ -94,5 +111,23 @@ main{
     display:flex;
     align-items: center;
     justify-content: center;
+    border:1px solid black;
     
+}
+
+footer{
+    padding-bottom:1.5rem;
+    height:100%;
+    display:flex;
+    align-items: flex-end;
+}
+
+
+@media(min-width: 550px){
+    .calc-container{
+        max-width:35rem;
+    }
+    .calc-body{
+        font-size: 2rem;
+    }
 }
