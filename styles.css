@@ -46,11 +46,11 @@ main{
     border-radius: 1rem;
 }
 
-.input-field{
+.input-container{
     width: 100%;
 }
 
-.input-field input{
+.input-container input{
     width: 100%;
     
     font-size: 3rem;
@@ -65,7 +65,7 @@ main{
 /* font-size: 30%; */
 
 }
-.number-buttons .clear-buttons span{
+.main-calc-buttons .clear-buttons span{
     /* font-size: ; */
     border:1px solid black;
     padding:10% 0;
@@ -78,7 +78,7 @@ main{
     width: 100%;
 }
 
-.calc-body .number-buttons{
+.calc-body .main-calc-buttons{
     display:flex;
     flex-flow: column nowrap;
     align-items:center;
@@ -86,16 +86,21 @@ main{
     
 }
 
-.number-buttons div{
+.main-calc-buttons div{
     width:100%;
     display:flex;
 }
 
-.number-buttons div span{
+.main-calc-buttons div span{
     text-align: center;
     width: 100%;
     padding:10%;
     border:1px solid black;
+}
+
+.calc-nums{
+    display:flex;
+    flex-flow: column nowrap;
 }
 
 .calc-body .operators{
@@ -103,6 +108,7 @@ main{
     flex-flow: column nowrap;
     align-items: center;
     width: 20%;
+    
 }
 
 .operators span{
@@ -112,7 +118,6 @@ main{
     align-items: center;
     justify-content: center;
     border:1px solid black;
-    
 }
 
 footer{
