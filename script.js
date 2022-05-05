@@ -1,8 +1,5 @@
 // input capable of holding two values
 
-// clear removes all inputs values
-// delete removes last number you click
-
 // function that takes in two numbers and a operator. Does the logic and returns answer on = click. Should be able to string different operations together before = click.
 // Does first two inputs before handling next operation
 // 
@@ -10,7 +7,10 @@
 let inputs = {
     inputOne:[],
     inputTwo:[],
+    operator:"",
 }
+
+let answers = 0;
 
 let input = document.querySelector(".input-field")
 let calcNums = document.querySelectorAll(".calc-nums div *")
@@ -26,18 +26,28 @@ function addToInputOne(e){
 }
 
 function updateInput(newValue){
-    input.value = newValue.join("")
+    console.log("newVal",newValue)
+    if(newValue.length === 0 ){
+        input.value = 0;
+    }else if( typeof newValue !== typeof 1){
+        input.value = newValue.join("")
+    }else{
+        input.value = newValue
+    }
 }
+    
+
 
 let clearButton = document.querySelector(".clear");
 clearButton.addEventListener("mousedown",clearInputs);
 
 function clearInputs(e){
     e.preventDefault()
-    input.value = 0
+    input.value = 0;
     inputs = {
         inputOne:[],
         inputTwo:[],
+        operator:"",
     }
 }
 
@@ -47,7 +57,60 @@ deleteButton.addEventListener("mousedown",deleteInput);
 function deleteInput(){
     inputs.inputOne.pop()
     updateInput(inputs.inputOne)
-    if(!input.value){
-        input.value = 0;
+}
+
+
+function inputOneToInputTwo(innerText){
+    inputs = {
+        inputTwo:[...inputs.inputOne],
+        inputOne:[],
+        operator:innerText,
     }
+    updateInput(inputs.inputOne)
+    console.log(inputs)
+}
+
+let operators = document.querySelectorAll(".operators span")
+
+operators.forEach(operator => {
+    // operator.addEventListener("mousedown",inputOneToInputTwo)
+    operator.addEventListener("mousedown",mathLogic)
+})
+
+function mathLogic(e){
+    e.preventDefault()
+    if(inputs.inputTwo.length != 0 ){
+        if(e.target.innerText === "="){
+            let answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
+            updateInput(answers)
+        }
+    }else{
+        inputOneToInputTwo(e.target.innerText)
+    }
+}
+
+function results(a,b,op){
+    if(op === "+"){
+       return add(a,b)
+    }else if(op === "-"){
+        return subtract(a,b)
+    }else if(op === "x"){
+        return multiply(a,b)
+    }else if(op === "/"){
+        return divide(a,b)
+    }
+    
+}
+
+function add(a,b){
+    return parseInt(a.join("")) + parseInt(b.join(""))
+}
+function subtract(a,b){
+    return parseInt(a.join("")) - parseInt(b.join(""))
+}
+function multiply(a,b){
+    return parseInt(a.join("")) * parseInt(b.join(""))
+}
+function divide(a,b){
+    return parseInt(a.join("")) / parseInt(b.join(""))
 }
