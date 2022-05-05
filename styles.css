@@ -61,14 +61,12 @@ main{
     border-bottom: 1px solid black;
 }
 
-.number-buttons .clear-buttons{
+.number-buttons .remove-buttons{
 /* font-size: 30%; */
 
 }
-.main-calc-buttons .clear-buttons span{
-    /* font-size: ; */
-    border:1px solid black;
-    padding:10% 0;
+.main-calc-buttons .remove-buttons span{
+    /* padding:10% 0; */
 }
 
 .calc-body{
