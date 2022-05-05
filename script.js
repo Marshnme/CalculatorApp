@@ -46,3 +46,7 @@ function clearInputs(e){
 
 let deleteButton = document.querySelector(".delete");
 deleteButton.addEventListener("mousedown",deleteInput);
+
+function deleteInput(){
+    
+}
