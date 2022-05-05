@@ -13,7 +13,6 @@ let inputs = {
 }
 
 let input = document.querySelector(".input-field")
-
 let calcNums = document.querySelectorAll(".calc-nums div *")
 
 
@@ -22,9 +21,7 @@ calcNums.forEach(num => {
 });
 
 function addToInputOne(e){
-
     inputs.inputOne = [...inputs.inputOne, e.target.innerText];
-
     updateInput(inputs.inputOne)
 }
 
@@ -48,5 +45,9 @@ let deleteButton = document.querySelector(".delete");
 deleteButton.addEventListener("mousedown",deleteInput);
 
 function deleteInput(){
-    
+    inputs.inputOne.pop()
+    updateInput(inputs.inputOne)
+    if(!input.value){
+        input.value = 0;
+    }
 }
