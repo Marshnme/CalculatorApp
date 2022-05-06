@@ -102,10 +102,12 @@ function mathLogic(e){
                 operator:e.target.innerText,
             }
             
+            
         
             
             inputOneToInputTwo(e.target.innerText)
             console.log(inputs)
+            updateInput(answers)
         }
     }else{
         inputOneToInputTwo(e.target.innerText)
