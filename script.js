@@ -26,7 +26,7 @@ function addToInputOne(e){
 }
 
 function updateInput(newValue){
-    console.log("newVal",newValue)
+    console.log("updatedInputValue",newValue)
     if(newValue.length === 0 ){
         input.value = 0;
     }else if( typeof newValue !== typeof 1){
@@ -75,14 +75,37 @@ let operators = document.querySelectorAll(".operators span")
 operators.forEach(operator => {
     // operator.addEventListener("mousedown",inputOneToInputTwo)
     operator.addEventListener("mousedown",mathLogic)
+    if(operator.innerText != "="){
+        operator.addEventListener("mousedown",updateOperator)
+    }
 })
+
+function updateOperator(e){  
+    // inputs.operator = e.target.innerText
+}
 
 function mathLogic(e){
     e.preventDefault()
     if(inputs.inputTwo.length != 0 ){
         if(e.target.innerText === "="){
-            let answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
+            answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
             updateInput(answers)
+            inputs = {
+                inputTwo:[],
+                inputOne:[answers],
+            }
+        }else{
+            answers = [results(inputs.inputTwo,inputs.inputOne,inputs.operator)]
+            inputs = {
+                inputTwo:[],
+                inputOne:[answers],
+                operator:e.target.innerText,
+            }
+            
+        
+            
+            inputOneToInputTwo(e.target.innerText)
+            console.log(inputs)
         }
     }else{
         inputOneToInputTwo(e.target.innerText)
@@ -114,3 +137,5 @@ function multiply(a,b){
 function divide(a,b){
     return parseInt(a.join("")) / parseInt(b.join(""))
 }
+
+console.log("answers",answers)
