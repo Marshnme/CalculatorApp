@@ -1,4 +1,4 @@
-// input capable of holding two values
+
 
 // function that takes in two numbers and a operator. Does the logic and returns answer on = click. Should be able to string different operations together before = click.
 // Does first two inputs before handling next operation
