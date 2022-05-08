@@ -84,7 +84,7 @@ function isInt(n) {
 
 function mathLogic(e){
     e.preventDefault()
-    if(inputs.inputTwo.length != 0 ){
+    if(inputs.inputTwo.length != 0 && inputs.inputOne.length != 0){
         if(e.target.innerText === "="){
             answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
             if(isInt(answers) === false){
@@ -105,7 +105,7 @@ function mathLogic(e){
             }
             
         }else{
-            answers = [results(inputs.inputTwo,inputs.inputOne,inputs.operator)]
+            answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
             if(isInt(answers) === false){
                 let roundedAnswer = roundTo(answers,2)
                 inputs = {
@@ -129,7 +129,7 @@ function mathLogic(e){
             
             
         }
-    }else{
+    }else if(e.target.innerText != "="){
         inputOneToInputTwo(e.target.innerText)
     }
 }
