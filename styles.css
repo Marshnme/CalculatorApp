@@ -52,21 +52,18 @@ main{
 
 .input-container input{
     width: 100%;
-    
-    font-size: 3rem;
-    padding:1rem 0;
+    font-size: 2rem;
+    padding:.5rem 0;
     text-align: center;
-    border-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     border: 0px solid black;
-    border-bottom: 1px solid black;
-}
-
-.number-buttons .remove-buttons{
-/* font-size: 30%; */
 
 }
+
 .main-calc-buttons .remove-buttons span{
-    /* padding:10% 0; */
+    padding:.5em 0;
+    background-color: rgb(117, 2, 2);
 }
 
 .calc-body{
@@ -87,26 +84,36 @@ main{
 .main-calc-buttons div{
     width:100%;
     display:flex;
+    background-color: azure;
 }
 
 .main-calc-buttons div span{
     text-align: center;
     width: 100%;
-    padding:1em;
+    padding:.5em 0;
     border:1px solid black;
 }
 
 .calc-nums{
     display:flex;
     flex-flow: column nowrap;
+    
 }
 
+.calc-nums:last-child div:last-child span, .calc-nums:last-child div ,.calc-nums{
+    border-bottom-left-radius: .8rem;
+}
 .calc-body .operators{
     display:flex;
     flex-flow: column nowrap;
     align-items: center;
     width: 20%;
-    
+    background-color: lightgrey;
+   
+}
+
+.calc-body .operators,.calc-body .operators span:last-child{
+     border-bottom-right-radius: 1rem;
 }
 
 .operators span{
@@ -119,8 +126,6 @@ main{
 }
 
 footer{
-    padding-bottom:1.5rem;
-    /* height:100%; */
     display:flex;
     align-items: flex-end;
 }
@@ -132,5 +137,8 @@ footer{
     }
     .calc-body{
         font-size: 2rem;
+    }
+    .input-container input{
+        font-size: 3rem;
     }
 }

@@ -87,7 +87,12 @@ function mathLogic(e){
     if(inputs.inputTwo.length != 0 && inputs.inputOne.length != 0){
         if(e.target.innerText === "="){
             if(inputs.inputOne == 0){
-                updateInput("slydog")
+                updateInput("slydog");
+                inputs = {
+                    inputTwo:[],
+                    inputOne:[],
+                    operator:"",
+                }
             }else{
                 answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
                 if(isInt(answers) === false){
@@ -109,7 +114,12 @@ function mathLogic(e){
             }
         }else{
             if(inputs.inputOne == 0){
-                updateInput("slydog")
+                updateInput("slydog");
+                inputs = {
+                    inputTwo:[],
+                    inputOne:[],
+                    operator:"",
+                }
             }else{
                     answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
                 if(isInt(answers) === false){
