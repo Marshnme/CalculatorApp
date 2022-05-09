@@ -86,48 +86,53 @@ function mathLogic(e){
     e.preventDefault()
     if(inputs.inputTwo.length != 0 && inputs.inputOne.length != 0){
         if(e.target.innerText === "="){
-            answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
-            if(isInt(answers) === false){
-                let roundedAnswer = roundTo(answers,2)
-                updateInput(roundedAnswer)
-                inputs = {
-                    inputTwo:[],
-                    inputOne:[roundedAnswer],
-                    operator:e.target.innerText,
-                }
+            if(inputs.inputOne == 0){
+                updateInput("slydog")
             }else{
-                updateInput(answers)
-                inputs = {
-                    inputTwo:[],
-                    inputOne:[answers],
-                    operator:e.target.innerText,
+                answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
+                if(isInt(answers) === false){
+                    let roundedAnswer = roundTo(answers,2)
+                    updateInput(roundedAnswer)
+                    inputs = {
+                        inputTwo:[],
+                        inputOne:[roundedAnswer],
+                        operator:e.target.innerText,
+                    }
+                }else{
+                    updateInput(answers)
+                    inputs = {
+                        inputTwo:[],
+                        inputOne:[answers],
+                        operator:e.target.innerText,
+                    }
                 }
             }
-            
         }else{
-            answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
-            if(isInt(answers) === false){
-                let roundedAnswer = roundTo(answers,2)
-                inputs = {
-                    inputTwo:[],
-                    inputOne:[roundedAnswer],
-                    operator:e.target.innerText,
-                }
-                inputOneToInputTwo(e.target.innerText)
-                updateInput(roundedAnswer)
+            if(inputs.inputOne == 0){
+                updateInput("slydog")
             }else{
-                inputs = {
-                    inputTwo:[],
-                    inputOne:[answers],
-                    operator:e.target.innerText,
+                    answers = results(inputs.inputTwo,inputs.inputOne,inputs.operator)
+                if(isInt(answers) === false){
+                    let roundedAnswer = roundTo(answers,2)
+                    inputs = {
+                        inputTwo:[],
+                        inputOne:[roundedAnswer],
+                        operator:e.target.innerText,
+                    }
+                    inputOneToInputTwo(e.target.innerText)
+                    updateInput(roundedAnswer)
+                }else{
+                    inputs = {
+                        inputTwo:[],
+                        inputOne:[answers],
+                        operator:e.target.innerText,
+                    }
+                
+                    inputOneToInputTwo(e.target.innerText)
+                    console.log(inputs)
+                    updateInput(answers)
                 }
-            
-                inputOneToInputTwo(e.target.innerText)
-                console.log(inputs)
-                updateInput(answers)
             }
-            
-            
         }
     }else if(e.target.innerText != "="){
         inputOneToInputTwo(e.target.innerText)
